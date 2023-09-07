@@ -74,13 +74,19 @@ body * {
   
   position: absolute;
   top: 50%;
-  right: 0;
+  left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back 0.3s;
+}
+
+#switch button:hover {
+  outline: 8px solid (--highlight-color);
 }
 
 .light #switch button {
-  left: 0;
+  animation: slide-in 0.3s forwards;
 }
 
 #switch span {
@@ -163,5 +169,23 @@ footer {
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg)
 
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
